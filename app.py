@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 st.set_page_config(page_title="Multi-Agent AI Classifier", layout="wide")
-st.title("📂 Multi-Agent AI Classifier (NVIDIA-powered)")
+st.title("📂 Multi-Agent AI Classifier")
 
 st.sidebar.header("Upload or Paste Data")
 
