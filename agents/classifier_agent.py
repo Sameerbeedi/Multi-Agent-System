@@ -62,23 +62,7 @@ def classify_and_route(filename: str, content: str):
             result_str = json.dumps({"error": "Failed to serialize result"})
 
         # Add to database with validation
-        try:
-            memory_store = MemoryStore()
-            # Validate required fields
-            if not all([filename, file_format, intent]):
-                raise ValueError("Missing required fields for database entry")
-
-            memory_store.log(
-                source=str(filename)[:255],
-                filetype=str(file_format)[:50],
-                intent=str(intent)[:100],
-                extracted=result_str
-            )
-        except Exception as db_error:
-            raise Exception(f"Failed to save to database: {str(db_error)}")
-        finally:
-            if hasattr(memory_store, 'conn') and memory_store.conn:
-                memory_store.conn.close()
+        
 
         return file_format, intent, result
 
