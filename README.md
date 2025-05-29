@@ -7,6 +7,11 @@ This project is a multi-agent AI pipeline powered by NVIDIA's Nemotron model, de
 - Route input to the appropriate **AI agent**
 - Maintain a shared **memory log**
 - Display a user-friendly **Streamlit UI**
+---
+## 🎬 Demo
+
+<video src="d.mp4" controls width="700"></video>
+
 
 ---
 
@@ -132,3 +137,4 @@ streamlit run app.py
 ```
 ### Note
 **The current processing speed is constrained by available computational resources, but the workflow remains efficient and reliable within those limits.**
+
