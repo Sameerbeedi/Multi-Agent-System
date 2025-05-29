@@ -35,54 +35,58 @@ def is_json_file(filename, content):
             return False
     return False
 
+# Replace the processing section with this updated code
 if submit_button:
-    is_valid_json = False  # Always define this variable
+    is_valid_json = False
+    content = None
 
-    if uploaded_file:
-        file_name = uploaded_file.name
-        try:
+    try:
+        if uploaded_file:
+            file_name = uploaded_file.name
             if file_name.lower().endswith(".pdf"):
                 content = uploaded_file.read()
             elif file_name.lower().endswith(".json"):
-                content = uploaded_file.read()
+                raw_content = uploaded_file.read()
                 # Validate JSON before processing
-                if not is_json_file(file_name, content):
+                if not is_json_file(file_name, raw_content):
                     st.error("The uploaded JSON file is not valid. Please check the file content.")
                     st.stop()
-                content = content.decode("utf-8", errors="ignore")
+                content = raw_content.decode("utf-8", errors="ignore")
                 is_valid_json = True
             else:
                 content = uploaded_file.read().decode("utf-8", errors="ignore")
-        except UnicodeDecodeError:
-            st.error("Unable to decode the file content. Please ensure it's properly encoded.")
+        elif raw_text.strip():
+            content = raw_text
+            file_name = "manual_input.txt"
+        else:
+            st.warning("Please upload a file or paste some content.")
             st.stop()
-        except Exception as e:
-            st.error(f"Error processing file: {str(e)}")
+
+        # Validate content before processing
+        if content is None:
+            st.error("No content to process")
             st.stop()
-    elif raw_text.strip():
-        content = raw_text
-        file_name = "manual_input.txt"
-    else:
-        st.warning("Please upload a file or paste some content.")
+
+        # Process file
+        with st.spinner("Classifying and Routing..."):
+            try:
+                file_format, intent, result = classify_and_route(file_name, content)
+                st.success(f"{file_format} file processed successfully.")
+                
+                # Display results
+                st.subheader("📌 Results")
+                st.markdown(f"- **Format**: `{file_format}`")
+                st.markdown(f"- **Intent**: `{intent}`")
+                st.subheader("🧠 Extracted Information")
+                st.code(result, language="markdown")
+                
+            except Exception as e:
+                st.error(f"Error during classification: {str(e)}")
+                st.stop()
+
+    except Exception as e:
+        st.error(f"Error processing file: {str(e)}")
         st.stop()
-
-    # Process and add to database if PDF or valid JSON
-    if file_name.lower().endswith(".pdf") or (file_name.lower().endswith(".json") and is_valid_json):
-        with st.spinner("Classifying and Routing..."):
-            file_format, intent, result = classify_and_route(file_name, content)
-        st.success(f"{file_format} file processed and added to the database.")
-        st.rerun()
-    else:
-        # For other file types or pasted text, still process and show results
-        with st.spinner("Classifying and Routing..."):
-            file_format, intent, result = classify_and_route(file_name, content)
-
-    st.subheader("📌 Results")
-    st.markdown(f"- **Format**: `{file_format}`")
-    st.markdown(f"- **Intent**: `{intent}`")
-
-    st.subheader("🧠 Extracted Information")
-    st.code(result, language="markdown")
 
 # --- Memory Log Section ---
 st.markdown("---")
