@@ -92,24 +92,7 @@ The Streamlit UI provides an interactive interface for users to upload files, pa
 
 ---
 
-### 📋 Example UI Layout
 
-```
-+-------------------------------------------------------------+
-| 📂 Multi-Agent AI Classifier                                |
-+-------------------------------------------------------------+
-| Sidebar:                                                    |
-|   - File uploader                                           |
-|   - Text area for content                                   |
-|   - Process button                                          |
-+-------------------------------------------------------------+
-| Main Area:                                                  |
-|   - Results (Format, Intent, Extracted Information)         |
-|   - Memory Log (filter, expand, delete logs)                |
-+-------------------------------------------------------------+
-```
-
----
 
 ## 📁 Project Structure
 ├── agents/
@@ -134,8 +117,8 @@ The Streamlit UI provides an interactive interface for users to upload files, pa
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/your-username/ai-multi-agent-classifier
-cd ai-multi-agent-classifier
+git clone https://github.com/Sameerbeedi/Multi-Agent-System
+cd Multi-Agent-System
 
 # 2. Install dependencies
 pip install -r requirements.txt
@@ -146,4 +129,5 @@ echo "NVIDIA_API_KEY=your-nvidia-api-key" > .env
 # 4. Run the app
 streamlit run app.py
 ```
-
+### Note
+**The current processing speed is constrained by available computational resources, but the workflow remains efficient and reliable within those limits.**
