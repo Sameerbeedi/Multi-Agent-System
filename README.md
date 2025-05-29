@@ -47,24 +47,69 @@ This project is a multi-agent AI pipeline powered by NVIDIA's Nemotron model, de
 
 ---
 
-## 🧪 Example Flow
+## 🖥️ Frontend Overview
 
-> A user uploads a JSON file:
-{
-"customer_name": "Acme Corp",
-"order_id": "ORD-123",
-"items": ["widget", "gadget"],
-"total_price": 499.99
-}
+The Streamlit UI provides an interactive interface for users to upload files, paste content, view classification results, and manage the memory log.
 
+### Main Functionalities
 
-→ **Classifier Agent** detects JSON + Intent: Invoice  
-→ Routed to **JSON Agent**  
-→ Extracts structured info, checks for missing fields  
-→ Logs result to memory and displays it in the frontend
+1. **File Upload & Text Input**
+   - Upload files (`PDF`, `JSON`, `TXT`, `EML`) via the sidebar.
+   - Paste or type any text, email, or JSON content in the provided text area.
+
+2. **Processing & Classification**
+   - Click the **Process** button to classify and extract information from the uploaded or pasted content.
+   - The system detects the file format and intent, then routes the input to the appropriate agent.
+
+3. **Results Display**
+   - Shows detected file format and intent.
+   - Displays extracted information in a readable format.
+
+4. **Memory Log**
+   - View a log of all processed files and their extracted information.
+   - Filter logs by intent (e.g., Email, Email+Invoice, etc.).
+   - Expand each log entry to see details.
+   - **Delete individual logs or all logs at once.**
+
+5. **Error Handling**
+   - Provides clear error messages for invalid files, unsupported formats, or processing issues.
 
 ---
 
+### 🖼️ UI Flow Example
+
+1. **Upload or Paste Content:**  
+   Use the sidebar to upload a file or paste text.
+
+2. **Process:**  
+   Click the **Process** button.
+
+3. **View Results:**  
+   See the classification and extracted information in the main area.
+
+4. **Review Memory Log:**  
+   Browse, filter, and manage past results in the Memory Log section.
+
+---
+
+### 📋 Example UI Layout
+
+```
++-------------------------------------------------------------+
+| 📂 Multi-Agent AI Classifier                                |
++-------------------------------------------------------------+
+| Sidebar:                                                    |
+|   - File uploader                                           |
+|   - Text area for content                                   |
+|   - Process button                                          |
++-------------------------------------------------------------+
+| Main Area:                                                  |
+|   - Results (Format, Intent, Extracted Information)         |
+|   - Memory Log (filter, expand, delete logs)                |
++-------------------------------------------------------------+
+```
+
+---
 
 ## 📁 Project Structure
 ├── agents/
@@ -100,4 +145,5 @@ echo "NVIDIA_API_KEY=your-nvidia-api-key" > .env
 
 # 4. Run the app
 streamlit run app.py
+```
 
