@@ -113,8 +113,9 @@ The Streamlit UI provides an interactive interface for users to upload files, pa
 ├── app.py<br>
 ├── requirements.txt<br>
 ├── README.md<br>
+├──sample_input
 
-
+The sample input directory has files that can be uploaded in the front end 
 
 ---
 

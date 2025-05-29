@@ -1,0 +1,42 @@
+{
+    "invoice_number": "INV-1001",
+    "invoice_date": "2025-05-29",
+    "due_date": "2025-06-12",
+    "seller": {
+        "name": "Tech Solutions Pvt. Ltd.",
+        "address": "123 MG Road, Bengaluru, Karnataka, India",
+        "email": "sales@techsolutions.in",
+        "phone": "+91-9876543210"
+    },
+    "buyer": {
+        "name": "Sameer Beedi",
+        "address": "456 Residency Road, Bengaluru, Karnataka, India",
+        "email": "sameer@example.com",
+        "phone": "+91-XXXXXXXXXX"
+    },
+    "items": [
+        {
+            "description": "Arduino Uno R3 Board",
+            "quantity": 2,
+            "unit_price": 850.0,
+            "total_price": 1700.0
+        },
+        {
+            "description": "Jumper Wire Set (Male to Female)",
+            "quantity": 1,
+            "unit_price": 150.0,
+            "total_price": 150.0
+        },
+        {
+            "description": "Breadboard (400 Points)",
+            "quantity": 1,
+            "unit_price": 120.0,
+            "total_price": 120.0
+        }
+    ],
+    "subtotal": 1970.0,
+    "tax_rate": 0.18,
+    "tax_amount": 354.6,
+    "total_amount": 2324.6,
+    "notes": "Thank you for your purchase. Payment is due within 14 days."
+}
