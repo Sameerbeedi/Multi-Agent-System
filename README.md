@@ -138,3 +138,15 @@ streamlit run app.py
 ### Note
 **The current processing speed is constrained by available computational resources, but the workflow remains efficient and reliable within those limits.**
 
+## 🖼️ Output Screenshots
+
+Below are some example outputs from the application:
+
+
+
+![File Upload](assets/output1.jpg)
+
+
+
+![Extracted Info and Log](assets/output2.jpg)
+
