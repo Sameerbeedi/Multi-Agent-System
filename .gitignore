@@ -1,0 +1,5 @@
+agents/__pycache__
+utils/__pycache__
+memory/__pycache__
+.env
+memory.db
