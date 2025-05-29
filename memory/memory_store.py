@@ -1,6 +1,10 @@
 # memory/memory_store.py
 import sqlite3
 import datetime
+import logging
+import traceback
+
+logger = logging.getLogger(__name__)
 
 class MemoryStore:
     def __init__(self, db_file='memory.db'):
@@ -17,11 +21,17 @@ class MemoryStore:
         ''')
 
     def log(self, source, filetype, intent, extracted):
-        self.conn.execute('''
-        INSERT INTO memory (source, type, intent, extracted, timestamp)
-        VALUES (?, ?, ?, ?, ?)
-        ''', (source, filetype, intent, str(extracted), datetime.datetime.now().isoformat()))
-        self.conn.commit()
+        try:
+            self.conn.execute('''
+            INSERT INTO memory (source, type, intent, extracted, timestamp)
+            VALUES (?, ?, ?, ?, ?)
+            ''', (source, filetype, intent, str(extracted), datetime.datetime.now().isoformat()))
+            self.conn.commit()
+            logger.info(f"Successfully inserted log for {source}")
+        except Exception as e:
+            logger.error(f"Database insertion error: {str(e)}")
+            logger.error(f"Database traceback: {traceback.format_exc()}")
+            raise
 
     def delete_log(self, log_id):
         self.conn.execute('DELETE FROM memory WHERE id = ?', (log_id,))
