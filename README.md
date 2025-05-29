@@ -10,7 +10,7 @@ This project is a multi-agent AI pipeline powered by NVIDIA's Nemotron model, de
 ---
 ## 🎬 Demo
 
-<video src="d.mp4" controls width="700"></video>
+[Click here to watch the demo video](https://github.com/Sameerbeedi/Multi-Agent-System/releases/download/version1.0/demo.mp4)
 
 
 ---
