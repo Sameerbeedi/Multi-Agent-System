@@ -101,7 +101,7 @@ if submit_button:
                         intent=intent,
                         extracted=result
                     )
-                    st.success("Results saved to database")
+                    
                 except Exception as e:
                     st.error(f"Failed to save to database: {str(e)}")
 
