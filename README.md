@@ -95,19 +95,20 @@ The Streamlit UI provides an interactive interface for users to upload files, pa
 
 
 ## 📁 Project Structure
-├── agents/
-│ ├── classifier_agent.py
-│ ├── email_agent.py
-│ └── json_agent.py
-├── utils/
-│ ├── file_parser.py
-│ ├── intent_classifier.py
-│ └── nvidia_client.py
-├── memory/
-│ └── memory_store.py
-├── app.py
-├── requirements.txt
-├── README.md
+├── agents/<br>
+│ ├── classifier_agent.py<br>
+│ ├── email_agent.py<br>
+│ └── json_agent.py<br>
+├── utils/<br>
+│ ├── file_parser.py<br>
+│ ├── intent_classifier.py<br>
+│ ├── client.py<br>
+| └──information_extractor<br>
+├── memory/<br>
+│ └── memory_store.py<br>
+├── app.py<br>
+├── requirements.txt<br>
+├── README.md<br>
 
 
 
