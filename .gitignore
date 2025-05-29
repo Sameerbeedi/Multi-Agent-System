@@ -5,3 +5,4 @@ memory/__pycache__
 memory.db
 pdf_processing.log
 sampledata.txt
+email.json
